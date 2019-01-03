@@ -27,6 +27,15 @@ body {
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
+    height: 100vh;
+    overflow: auto;
+    margin: auto;
+    width: 100%;
+    display: table;
+}
+.jumbotron div {
+  vertical-align: middle;
+  display: table-cell;  
 }
   .container-fluid {
     padding: 60px 50px;
@@ -40,7 +49,7 @@ body {
   }
   .logo {
     color: #3333cc;
-    font-size: 200px;
+    font-size: 140px;
   }
   .thumbnail {
     padding: 0 0 15px 0;
@@ -122,6 +131,9 @@ body {
     font-family: Montserrat, sans-serif;
     font-weight: bold;
   }
+  .navbar-brand {
+    font-family: Bungee, sans-serif;
+  }
   .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
   }
@@ -132,11 +144,6 @@ body {
   .navbar-default .navbar-toggle {
     border-color: transparent;
     color: #fff !important;
-  }
-  footer .glyphicon {
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #3333cc;
   }
   .slideanim {visibility:hidden;}
   .slide {
@@ -185,3 +192,37 @@ body {
   .modal-dialog {
     margin-top:90px;
  }
+
+ footer {
+  height: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #3333cc;
+  color: white;
+  display: table;
+}
+footer div {
+  vertical-align: middle;
+  display: table-cell;  
+}
+/* unvisited link */
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+/* mouse over link */
+a:hover {
+  color: black;
+}
+
+/* selected link */
+a:active {
+  color: white;
+}

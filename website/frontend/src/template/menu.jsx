@@ -6,8 +6,7 @@ export default props => (
         <div className="container">
             <div className="navbar-header">
                 <a className='navbar-brand' href='#'>
-                    <i className='fa fa-calendar-check-o'></i> Jean George Inc.
-                    {/* LEMBRAR DE TROCAR */}
+                    <i className='glyphicon glyphicon-sound-stereo'></i> Jean George Inc.
                 </a>
             </div>
 
@@ -22,10 +21,5 @@ export default props => (
             </div>
         </div>
         </nav>
-
-        <div className="jumbotron text-center">
-        <h1>Jean George Inc.</h1> 
-        <p>Soluções em software.</p> 
-        </div>
     </div>
 )

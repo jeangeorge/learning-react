@@ -10,10 +10,12 @@ import "typeface-montserrat"
 import React from 'react'
 import Menu from '../template/menu'
 import Routes from './routes'
+import Footer from '../template/footer'
 
 export default props => (
     <div className=''>
         <Menu />
         <Routes />
+        <Footer />
     </div>
 )

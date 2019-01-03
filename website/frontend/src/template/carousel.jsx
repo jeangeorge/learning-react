@@ -56,13 +56,13 @@ export default class extends React.Component {
             }
         >
            <div className="item">
-             <h4>"Fico muito feliz por ter uma equipe tão diversificada, qualificada e boa de serviço."<br></br><span>Jean George, Fundador e CEO</span></h4>
+             <h4 className="text-center">"Fico muito feliz por ter uma equipe tão diversificada, qualificada e boa de serviço."<br></br><span>Jean George, Fundador e CEO</span></h4>
            </div>
            <div className="item">
-             <h4>"Como não gostar de trabalhar aqui?!"<br></br><span>Lucas Seta, Programador</span></h4>
+             <h4 className="text-center">"Como não gostar de trabalhar aqui?!"<br></br><span>Lucas Seta, Programador</span></h4>
            </div>
            <div className="item">
-             <h4>"A Jean George Inc. é uma empresa que consegue unir eficiência a ambiente inovador e leve, incrível!"<br></br><span>Chandler Bing, Especialista</span></h4>
+             <h4 className="text-center">"A Jean George Inc. é uma empresa que consegue unir eficiência a ambiente inovador e leve, incrível!"<br></br><span>Chandler Bing, Especialista</span></h4>
            </div>
       </Carousel>
     );
