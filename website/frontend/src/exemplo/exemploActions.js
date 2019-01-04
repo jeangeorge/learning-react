@@ -1,23 +1,59 @@
 import axios from 'axios'
 
-const URL = 'http://sage.saude.gov.br/paineis/aqt/lista_farmacia.php?output=json&'
+const URL = 'https://jsonplaceholder.typicode.com/users'
 
-export const changeDescription = (event) => ({
-    type: 'DESCRIPTION_CHANGED',
+let user_id = 11
+
+
+export const changeName = (event) => ({
+    type: 'NAME_CHANGED',
+    payload: event.target.value
+})
+
+export const changeAddress = (event) => ({
+    type: 'ADDRESS_CHANGED',
+    payload: event.target.value
+})
+
+export const changePhone = (event) => ({
+    type: 'PHONE_CHANGED',
+    payload: event.target.value
+})
+
+export const changeEmail = (event) => ({
+    type: 'EMAIL_CHANGED',
     payload: event.target.value
 })
 
 export const search = () => {
-    const request = axios.get(URL, {
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-            'Content-Type': 'application/json'
-        }
-    })
+    const request = axios.get(URL)
 
     return {
         type: 'EXEMPLO_SEARCHED',
         payload: request
     }
 }
+
+// export const addUser = (user) => ({
+//     type: 'ADD_USER',
+//     id: user_id++,
+//     user
+// })
+
+export function addUser(name, address, phone, email) {
+    return {
+        type: 'ADD_USER',
+        payload: {
+            id: user_id++,
+            name,
+            address,
+            phone,
+            email
+        }
+    }
+}
+
+export const deleteUser = (id) => ({
+    type: 'DELETE_USER',
+    id: id
+})

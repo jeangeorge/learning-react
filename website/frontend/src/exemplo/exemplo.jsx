@@ -6,7 +6,13 @@ import ExemploList from './exemploList'
 export default class Exemplo extends Component {
     constructor(props) {
         super(props)
-        this.state = { description: '', list: [] }
+        this.state = {
+            name: '',
+            address: '',
+            phone: '',
+            email: '',
+            list: []
+        }
 
         this.handleChange = this.handleChange.bind(this)
         this.handleAdd = this.handleAdd.bind(this)
@@ -20,16 +26,16 @@ export default class Exemplo extends Component {
         this.refresh()
     }
 
-    refresh(description = '') {
+    refresh(state = '') {
         console.log('refresh')
     }
 
     handleSearch() {
-        this.refresh(this.state.description)
+        this.refresh(this.state)
     }
 
     handleChange(e) {
-        this.setState({ ...this.state, description: e.target.value })
+        this.setState({ ...this.state, list: e.target.value })
     }
 
     handleAdd() {
@@ -58,7 +64,10 @@ export default class Exemplo extends Component {
                 <div className="row">
                     <Title name='Exemplo'> </Title>
                     <ExemploForm
-                        description={this.state.description}
+                        name={this.state.name}
+                        address={this.state.address}
+                        phone={this.state.phone}
+                        email={this.state.email}
                         handleAdd={this.handleAdd}
                         handleChange={this.handleChange}
                         handleSearch={this.handleSearch}

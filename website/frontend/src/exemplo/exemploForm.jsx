@@ -4,50 +4,66 @@ import { bindActionCreators } from 'redux'
 
 import Grid from '../template/grid'
 import IconButton from '../template/iconButton'
-import { changeDescription, search } from './exemploActions'
+import { addUser, changeName, changeAddress, changePhone, changeEmail, search } from './exemploActions'
 
 class ExemploForm extends Component {
     constructor(props) {
         super(props)
-        this.keyHandler = this.keyHandler.bind(this)
     }
 
     componentWillMount() {
         this.props.search()
     }
 
-    keyHandler(e) {
-        if(e.key === 'Enter') {
-            e.shiftKey ? this.props.handleSearch() : this.props.handleAdd()
-        } else if(e.key === 'Escape') {
-            props.handleClear()
-        }
-    }
-
     render() {
+        const { addUser, search, user } = this.props
         return (
-            <div role='form' className='exemploForm'>
-                <Grid cols='12 9 10'>
-                    <input
-                        id='description'
-                        className='form-control'
-                        placeholder='Adicione uma tarefa'
-                        value={this.props.description}
-                        onChange={this.props.changeDescription}
-                        onKeyUp={this.keyHandler}>
-                    </input>
-                </Grid>
-                <Grid cols='12 3 2'>
-                    <IconButton style='primary' icon='plus' onClick={this.props.handleAdd}></IconButton>
-                    <IconButton style='info' icon='search' onClick={this.props.handleSearch}></IconButton>
-                    <IconButton style='default' icon='close' onClick={this.props.handleAdd}></IconButton>
-                </Grid>
+            <div role='form' className='exemploForm' style={{marginBottom: '30px'}}>
+                <div className="row">
+                    <Grid cols='12 3 3'>
+                        <input
+                            id='name' className='form-control' placeholder='Digite o nome'
+                            value={this.props.name} onChange={this.props.changeName}>
+                        </input>
+                    </Grid>
+                    <Grid cols='12 3 4'>
+                        <input
+                            id='address' className='form-control' placeholder='Digite o endereço'
+                            value={this.props.address} onChange={this.props.changeAddress}>
+                        </input>
+                    </Grid>
+                    <Grid cols='12 3 2'>
+                        <input
+                            id='phone' className='form-control' placeholder='Digite o telefone'
+                            value={this.props.phone} onChange={this.props.changePhone}>
+                        </input>
+                    </Grid>
+                    <Grid cols='12 3 3'>
+                        <input
+                            id='email' className='form-control' placeholder='Digite o email'
+                            value={this.props.email} onChange={this.props.changeEmail}>
+                        </input>
+                    </Grid>
+                </div>
+                <div className="row" style={{marginTop: '10px'}}>
+                    <Grid cols='12 3 2'>
+                        <IconButton style='primary' icon='plus' onClick={() => addUser(this.props.name, this.props.address, this.props.phone, this.props.email)}></IconButton>
+                        <IconButton style='info' icon='search' onClick={() => search()}></IconButton>
+                        <IconButton style='default' icon='close' onClick={this.props.handleClear}></IconButton>
+                    </Grid>
+                </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({description: state.exemplo.description})
-const mapDispatchToProps = dispatch => bindActionCreators({ changeDescription, search }, dispatch)
+const mapStateToProps = state => ({
+        name: state.exemplo.name,
+        address: state.exemplo.address,
+        phone: state.exemplo.phone,
+        email: state.exemplo.email
+    }
+)
+const mapDispatchToProps = dispatch => bindActionCreators({ addUser, changeName, changeAddress, changePhone, changeEmail, search }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExemploForm)

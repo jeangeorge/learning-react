@@ -6,25 +6,15 @@ const ExemploList =  props => {
     const renderRows = () => {
         const list = props.list || []
         return list.map(exemplo => (
-            <tr key={exemplo._id}>
-                <td className={exemplo.done ? 'maskedAsDone' : ''}>{exemplo.description}</td>
+            <tr key={exemplo.id}>
+                <td>{exemplo.name}</td>
+                <td>{'Rua'}</td>
+                <td>{exemplo.phone}</td>
+                <td>{exemplo.email}</td>
                 <td>
-                    <IconButton 
-                        style='success'
-                        icon='check'
-                        hide={exemplo.done}
-                        onClick={() => props.handleMarkAsDone(exemplo)}
-                    ></IconButton>
-                    <IconButton
-                        style='warning'
-                        icon='undo'
-                        hide={!exemplo.done}
-                        onClick={() => props.handleMarkAsPending(exemplo)}
-                    ></IconButton>
                     <IconButton
                         style='danger'
                         icon='trash-o'
-                        hide={!exemplo.done}
                         onClick={() => props.handleRemove(exemplo)}
                     ></IconButton>
                 </td>
@@ -33,10 +23,13 @@ const ExemploList =  props => {
     }
 
     return (
-        <table className='table'>
+        <table className='table table-bordered table-hover table-responsive'>
             <thead>
                 <tr>
-                    <th>Descrição</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
                     <th className='tableActions'>Ações</th>
                 </tr>
             </thead>
