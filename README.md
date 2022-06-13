@@ -1,2 +1,2 @@
-# learn_react
-Básico do básico.
+# leaning-react
+📚 Studying
